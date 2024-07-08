@@ -8,6 +8,15 @@
 let baraja = [];
 const tipos = ["C", "D", "H", "S"];
 const especiales = ["A", "J", "Q", "K"];
+let puntosJugador = 0;
+let puntosComputadora = 0;
+
+// Referencias del HTML
+const btnPedir = document.querySelector("#btnPedir");
+const btnNuevo = document.querySelector("#btnNuevo");
+const btnDetener = document.querySelector("#btnDetener");
+
+const puntosHTML = document.querySelectorAll("small");
 
 // Esta función crea una nueva baraja
 const crearBaraja = () => {
@@ -34,11 +43,32 @@ const pedirCarta = () => {
   if (baraja.length === 0) {
     throw "No hay cartas en la baraja";
   }
-  // const carta = baraja.pop();
-  const carta = _.sample(baraja);
-  let indexCarta = baraja.indexOf(carta);
-  baraja.splice(indexCarta, 1);
+
+  const carta = baraja.pop();
   return carta;
 };
 
-pedirCarta();
+// pedirCarta();
+
+const valorCarta = (carta) => {
+  const valor = carta.substring(0, carta.length - 1);
+
+  return isNaN(valor) ? (valor === "A" ? 11 : 10) : valor * 1;
+
+  // if (isNaN(valor)) {
+  //   puntos = valor === "A" ? 11 : 10;
+  // } else {
+  //   puntos = valor * 1;
+  // }
+  // console.log(puntos);
+};
+
+const valor = valorCarta(pedirCarta());
+
+// Eventos
+btnPedir.addEventListener("click", () => {
+  const carta = pedirCarta();
+  puntosJugador = puntosJugador + valorCarta(carta);
+  puntosHTML[0].innerText = puntosJugador;
+  console.log(carta, puntosJugador);
+});
