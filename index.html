@@ -14,40 +14,43 @@
         Blackjack
     </header>
 
-    <div class="row mt-2">
+    <div class="row m-3">
         <div class="col text-center">
             <button class="btn btn-danger" id="btnNuevo">Nuevo juego</button>
-            <button class="btn btn-primary" id="btnPedir">Pedir carta</button>    
-            <button class="btn btn-primary" id="btnDetener">Detener</button>    
+            <button class="btn btn-primary" id="btnPedir" disabled="disabled">Pedir carta</button>    
+            <button class="btn btn-primary" id="btnDetener" disabled="disabled">Detener</button>    
         </div>
     </div>
 
     <div class="row container">
         <div class="col">
-            <h1>Jugador 1 - <small>0</small></h1>
-            <div id="jugador-cartas">
+            <h2>Jugador 1 - <small>0</small></h2>
+            <div id="jugador-cartas" class="divCartas">
+                <!-- <img class="carta" src="assets/cartas/2C.png">
                 <img class="carta" src="assets/cartas/2C.png">
                 <img class="carta" src="assets/cartas/2C.png">
-                <img class="carta" src="assets/cartas/2C.png">
-                <img class="carta" src="assets/cartas/2C.png">
+                <img class="carta" src="assets/cartas/2C.png"> -->
             </div>
         </div>
     </div>
 
     <div class="row container mt-5">
         <div class="col">
-            <h1>Computadora 1 - <small>0</small></h1>
-            <div id="computadora-cartas">
+            <h2>Computadora - <small>0</small></h2>
+            <div id="computadora-cartas" class="divCartas">
+                <!-- <img class="carta" src="assets/cartas/3C.png">
                 <img class="carta" src="assets/cartas/3C.png">
                 <img class="carta" src="assets/cartas/3C.png">
-                <img class="carta" src="assets/cartas/3C.png">
-                <img class="carta" src="assets/cartas/3C.png">
+                <img class="carta" src="assets/cartas/3C.png"> -->
             </div>
         </div>
     </div>
 
     <script src="assets/js/underscore-min.js"></script>
-    <script src="assets/js/juego.js"></script>
+    <script src="assets/js/juego-min.js"></script> 
     
+    <script>
+        miModulo.nuevoJuego();
+    </script>
 </body>
 </html>
